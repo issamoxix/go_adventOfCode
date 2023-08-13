@@ -31,7 +31,7 @@ func main() {
 	var fileBody string = string(body)
 	aStrings := strings.Split(fileBody, "\n")
 
-	// First task & sencond
+	// First  &  Seconde Task
 	var temp int
 
 	var m_calories []int
