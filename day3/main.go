@@ -21,7 +21,15 @@ func get_file() string {
 
 func main() {
 	var textFile string = get_file()
-	var lines []string = strings.Split(textFile, "\n")
+	var part int = 2
+	if part == 1 {
+		part1(textFile)
+	}
+	part2(textFile)
+}
+
+func part1(body string) {
+	var lines []string = strings.Split(body, "\n")
 	var result []int
 
 	for _, line := range lines {
@@ -37,6 +45,45 @@ func main() {
 		}
 	}
 	fmt.Println(get_sum(result))
+}
+
+func part2(body string) {
+	var lines []string = strings.Split(body, "\n")
+	var result []int
+	var count int = 0
+	var threeLines string
+
+	for _, line := range lines {
+		threeLines += line + " "
+		count += 1
+		if count == 3 {
+
+			result = append(result, Compare(threeLines))
+			count = 0
+			threeLines = ""
+		}
+	}
+	fmt.Println(get_sum(result))
+}
+
+func Compare(threeLines string) int {
+	var threeLinesSplited []string = strings.Split(threeLines, " ")
+	var root string = threeLinesSplited[0]
+	var words []string
+	var Dword string
+	for _, word := range root {
+		if strings.Contains(threeLinesSplited[1], string(word)) {
+			words = append(words, string(word))
+		}
+	}
+	for _, word := range words {
+		if strings.Contains(threeLinesSplited[2], word) {
+			Dword = word
+			break
+		}
+	}
+	return getScore(Dword)
+
 }
 
 func getScore(ch string) int {
