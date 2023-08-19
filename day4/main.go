@@ -46,6 +46,12 @@ func part2(lines []string) int {
 func allOverlaping(_elf string, __elf string) bool {
 	var _range []string = strings.Split(_elf, "-")
 	var __range []string = strings.Split(__elf, "-")
+
+	// if _range[0] > __range[0] {
+	// 	_range, __range = __range, _range
+	// }
+	// return _range[1] >= __range[0]
+
 	if parseStr(_range[0]) == parseStr(__range[0]) {
 		return true
 	}
