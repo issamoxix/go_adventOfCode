@@ -8,7 +8,6 @@ import (
 )
 
 func main() {
-	fmt.Println("hello world")
 	var body string = read_file()
 	var lines []string = strings.Split(body, "\n")
 	// fmt.Println(part1(lines)) // uncomment for part1
